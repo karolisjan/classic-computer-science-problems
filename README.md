@@ -1,3 +1,3 @@
 # Classic Computer Science Problems
 
-Following Classic Computer Science Problems in Python by David Kopec
+Collection of solutions to Classic Computer Science Problems in Python by David Kopec.
