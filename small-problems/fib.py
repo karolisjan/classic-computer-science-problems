@@ -1,5 +1,5 @@
 import sys
-from typing import Dict, Callable
+from typing import Dict, Callable, Generator
 
 
 def memoize(func: Callable[[int], int]) -> Callable[[int], int]:
@@ -47,9 +47,27 @@ def fib3(n: int) -> int:
 	return next
 
 
+def fib4(n: int) -> Generator[int, None, None]:
+	yield 0
+
+	if n > 0:
+		yield 1
+
+	last: int = 0
+	next: int = 1
+
+	for _ in range(1, n):
+		last, next = next, last + next
+		yield next
+
+
 if __name__ == '__main__':
 	n = int(sys.argv[1])
+	
 	print(fib(n))
 	print(fib2(n))
 	print(fib3(n))
+	
+	for i in fib4(n):
+		print(i)
 
